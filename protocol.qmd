@@ -1,0 +1,28 @@
+---
+title: "BA reviews"
+format: html
+editor: visual
+---
+
+## Downloading the data
+
+To download the data, I used [this link](https://www.kaggle.com/datasets/dharun4772/british-airline-review-dataset/download?datasetVersionNumber=1).
+
+After that, I unzipped the file "airline_review.csv" and placed it in the project's working directory obtained via `getwd()`.
+
+## Loading, inspecting and cleaning the data
+
+I loaded the required libraries:
+
+```{r}
+libs <- c("tidyverse")
+sapply(libs, require, character.only = TRUE)
+
+```
+
+Loaded the file and filtered out useless columns:
+
+```{r}
+df <- read_csv("airline_review.csv") %>%
+  select(!c("...1", "header", "author", "content"))
+```
